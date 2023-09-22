@@ -1,0 +1,34 @@
+#fwd kinematics config
+/kinematik/odom_alpha:
+  - 0.0
+  - 90.0
+
+/kinematik/odom_gamma:
+  - -150.0
+  - 30.0
+  
+/kinematik/odom_l: 0.43 #m
+/kinematik/odom_d: 0.05 #m
+/kinematik/odom_ppr: 360
+
+
+#inv kinematics config
+/kinematik/omni_wheel_l : 0.530330086 #m
+/kinematik/omni_wheel_d : 0.1 #m 
+/kinematik/roda6_wheel_alpha:
+ - 45.0 #rf
+ - 135.0 #lf
+ - 180.0 #ll
+ - -135.0 #lb
+ - -45.0 #rb
+ - 0.0 #rr
+
+/kinematik/roda6_wheel_gamma:
+  - -45.0
+  - 45.0
+  - 90.0
+  - 135.0
+  - -135.0
+  - -90.0
+
+/kinematik/lambda: .5

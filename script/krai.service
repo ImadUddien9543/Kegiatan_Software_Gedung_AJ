@@ -1,0 +1,21 @@
+# UNTUK AUTO START ROS
+# Lokasi: /lib/systemd/system/krai.service
+# Install: 
+# - sudo systemctl daemon-reload
+# - sudo systemctl enable krai.service
+# - sudo systemctl start krai.service
+# - sudo systemctl status krai.service (untuk check)
+
+#jika gagal sudo systemctl restart krai.service
+
+[Unit]
+Description=KRAI ROS Service
+After=network.target
+
+[Service]
+Type=simple
+User=jetson
+ExecStart=/bin/bash /home/jetson/ros_ws/krai
+
+[Install]
+WantedBy=multi-user.target

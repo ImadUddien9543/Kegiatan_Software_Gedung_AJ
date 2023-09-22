@@ -1,0 +1,8 @@
+#!/usr/bin/expect -f
+
+#jgn lupa sudo chmod a+x transfer.exp
+set prompt ": "
+spawn scp -r ros_ws/ jetson@192.168.93.129:~/
+expect -re $prompt
+send "jetson\r"
+interact

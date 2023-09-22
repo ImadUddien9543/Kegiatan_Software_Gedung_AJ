@@ -1,0 +1,32 @@
+#jetson gajah conf
+mappings:
+  #kalau salah arah kalikan -1.0 atau hapus
+  axes:
+    - axes[0] #LX
+    - axes[1] * -1.0 #LY
+    - axes[2] #RX
+    - axes[5] * -1.0 #RY
+    - (axes[3] - 1) * 0.5 #L2 
+    - (axes[4] - 1) * 0.5 #R2
+  
+  buttons:
+    - buttons[1] #silang
+    - buttons[2] #bulat
+    - buttons[3] #wajik
+    - buttons[0] #kotak
+    - buttons[4] #L1
+    - buttons[5] #R1
+    - buttons[6] #L2
+    - buttons[7] #R2
+    - buttons[8] #share
+    - buttons[9] #options
+    - buttons[12] #PS
+    - buttons[10] #L3
+    - buttons[11] #R3
+    - min(axes[6], 0.0) * -1.0 #kiri [13]
+    - max(axes[6], 0.0) #kanan       [14]
+    - min(axes[7], 0.0) * -1.0 #atas  [15]
+    - max(axes[7], 0.0) #bawah        [16]
+    - min(axes[5], 0.0) * -1.0
+    - max(axes[5], 0.0) * 1.0
+

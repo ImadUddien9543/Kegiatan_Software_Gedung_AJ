@@ -1,0 +1,62 @@
+#kondisi minimum batere 24.7
+/Mekanisme/ring_mri_1:
+  - 3220  #type 1  
+  - 3740  #type 2a
+  - 4120  #type 3
+  - 4080  #type 3
+#  - 4108  #type 2b
+
+/Mekanisme/ring_mri_2:  
+  - 4590  #type 1
+  - 4680  #type 2a 
+  - 4900  #type 3
+  - 4900  #type 3
+#  - 4780  #type 2b
+
+/Mekanisme/sudut:
+  - 32
+  - 32
+  - 32
+  - 28  
+
+/Mekanisme/min_pwm: 3000
+/Mekanisme/max_pwm: 6000
+/Mekanisme/offset_bldc_1: 200
+/Mekanisme/offset_bldc_2: 450
+
+/Mekanisme/boost_bldc_1:
+  - 30
+  - 20
+  - 60 #3
+  - 20 #3
+
+/Mekanisme/boost_bldc_2: 
+  - 100
+  - 50
+  - 200 #3
+  - 100 #3
+
+#kinematik var
+/Kinematik/r_robot: 1
+/Kinematik/sudut_omni:
+  - 45.0
+  - 135.0
+  - 225.0
+  - 315.0
+
+/Kinematik/poly_quintic:
+  - 0.031
+  - 0.0365
+  - 0.03875
+  - 0.037
+  - 0.036
+
+/Kinematik/omni_val:
+  - -100
+  - 100
+
+/Kinematik/omni_pwm:
+  - -700
+  - 700
+/Kinematik/nos_plus: 0.0015
+/Kinematik/nos_min: 0.005

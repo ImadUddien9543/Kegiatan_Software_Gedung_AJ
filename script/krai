@@ -1,0 +1,3 @@
+cd /home/jetson/ros_ws/
+./reconnect.exp
+. ./jalan_gajah.sh

@@ -1,0 +1,46 @@
+#-----------------INVERSE----------------#
+/kinematik/ang_coeff: 0.75
+/kinematik/vel_coeff: 1.5
+
+/kinematik/roda4_wheel_alpha:
+ - 45.0 #rf
+ - 135.0 #lf
+ - -135.0 #lb
+ - -45.0 #rb
+
+/kinematik/roda4_wheel_gamma:
+  - -45.0
+  - 45.0
+  - 135.0
+  - -135.0
+
+/kinematik/r_omni: 1
+
+#------------ODOMETRY-------------------#
+
+/kinematik/r_odom: 1
+
+/kinematik/alpha_odom3:
+  - 0.0
+  - 90.0
+  - 180.0
+
+/kinematik/gamma_odom3:
+  - -90.0
+  - 0.0
+  - 90.0
+
+/kinematik/poly_quintic:
+  - 0.031
+  - 0.0365
+  - 0.03875
+  - 0.037
+  - 0.036
+
+/kinematik/omni_val:
+  - -100
+  - 100
+
+/kinematik/omni_pwm:
+  - -700
+  - 700

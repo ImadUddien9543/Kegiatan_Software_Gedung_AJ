@@ -1,0 +1,47 @@
+/Mekanisme/pwm_bldc_1:  
+  - 3500
+  - 4000
+  - 4500
+  - 5000
+  - 5500
+  - 6000
+
+/Mekanisme/pwm_bldc_2:  
+  - 3800
+  - 4200
+  - 4700
+  - 5200
+  - 5800
+  - 6000
+
+/Mekanisme/min_pwm_1: 3420
+/Mekanisme/max_pwm_1: 6000
+
+/Mekanisme/min_pwm_2: 3430
+/Mekanisme/max_pwm_2: 6000
+
+/Mekanisme/offset_bldc_1: 500
+/Mekanisme/offset_bldc_2: 650
+
+#kinematik var
+/Kinematik/r_robot: 1
+/Kinematik/sudut_omni:
+  - 45.0
+  - 135.0
+  - 225.0
+  - 315.0
+
+/Kinematik/poly_quintic:
+  - 0.031
+  - 0.0365
+  - 0.03875
+  - 0.037
+  - 0.036
+
+/Kinematik/omni_val:
+  - -100
+  - 100
+
+/Kinematik/omni_pwm:
+  - -700
+  - 700

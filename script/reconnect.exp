@@ -1,0 +1,36 @@
+#!/usr/bin/expect -f
+
+set prompt "#"
+#hitam
+#set address "84:30:95:52:99:66"
+#biru
+set address "48:18:8D:F5:A8:17" 
+spawn bluetoothctl
+expect -re $prompt
+send "agent on\r"
+expect "Agent registered"
+expect -re $prompt
+send "default-agent\r"
+expect -re $prompt
+send "remove $address\r"
+expect {
+	"Device has been removed" {
+		send "scan on\r";
+		exp_continue
+	}	
+	"not available" {
+		send "scan on\r";
+	}
+}
+expect -re $address
+expect -re $prompt
+send "trust $address\r"
+expect "trust succeeded"
+expect -re $prompt
+send "pair $address\r"
+expect "Pairing successful"
+expect -re $prompt
+send "scan off\r"
+expect -re $prompt
+send "quit\r"
+expect eof

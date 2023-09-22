@@ -1,0 +1,8 @@
+#!/usr/bin/expect -f
+#untuk otomasi ssh jetson
+#jgn lupa sudo chmod a+x transfer.exp
+set prompt ": "
+spawn ssh jetson@192.168.93.129
+expect -re $prompt
+send "jetson\r"
+interact

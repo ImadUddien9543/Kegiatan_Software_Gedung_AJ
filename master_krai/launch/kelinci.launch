@@ -1,0 +1,30 @@
+<launch>
+  <rosparam command="load" file="$(find master_krai)/config/var_kelinci.yaml"/>  
+  
+  <arg name="in_joy" default="/dev/input/js1"/>
+  <arg name="conf_ps4" default="$(find master_krai)/config/ds4_joy.yaml"/>
+  <arg name="stm" default="/dev/ttyACM0"/>  
+  <arg name="stm_id" default="/dev/serial/by-id/usb-STMicroelectronics_STM32_STLink_066EFF495254707867251444-if02"/>
+       
+  <node name="ds4_run" pkg="master_krai" type="ds4_run.py" output="screen"/>
+
+  <include file="$(find joy_2)/launch/ps4joy.launch">
+    <arg name="dev" value="$(arg in_joy)"/>
+    <arg name="conf" value="$(arg conf_ps4)"/>
+    <arg name="trig_val" value="false"/>
+  </include>
+  
+  <node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen" respawn="true">    
+    <param name="port" value="$(arg stm)"/>
+    <param name="baud" value="115200"/>
+  </node>
+
+  <node name="Mekanisme_kelinci" pkg="master_krai" type="kelinci.py" output="screen" respawn="true">
+  </node>
+
+  <node name="Kinematik" pkg="master_krai" type="kinematics.py" output="screen" respawn="true">    
+    <param name="alpha_coeff" type="double" value="0.6"/>
+    <param name="vel_coeff" type="double" value="1"/>    
+  </node>
+          
+</launch>
