@@ -1,12 +1,14 @@
-#program helper untuk menyederhanakan fwd kinematics (bisa untuk inverse juga)
+#program helper untuk menyederhanakan fwd kinematics
 
 from numpy import matrix, sin, cos, around, pi, array
 from numpy.linalg import pinv, inv
 from sympy import *
 
-var('cs sn -sn')
+init_printing()
 var('q1 q2 q3')
 var('Xg, Yg, Zg')
+cs = Symbol("cos(th)")
+sn = Symbol("sin(th)")
 
 a = [0., pi, -pi/2.0]
 g = [-pi/2, pi/2, pi]
@@ -30,8 +32,8 @@ pose = Matrix([Xg, Yg, Zg])
 e = J_odom3.inv().multiply(Rot)
 # pprint(e.multiply(enc))
 e2 = e.multiply(enc)
-pprint(J_odom3.inv())
-print('\n\n')
+# pprint(J_odom3.inv())
+print("\n")
 pprint(Eq(pose, e2))
 # a = array([0., pi, -pi/2.0])
 # g = array([-pi/2, pi/2, pi])
