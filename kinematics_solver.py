@@ -1,5 +1,6 @@
 #program helper untuk menyederhanakan fwd kinematics dan inv kinematics
-
+#jalankan di terminal
+#requirements:
 from numpy import matrix, sin, cos, around, pi, array
 from numpy.linalg import pinv, inv
 from sympy import *
