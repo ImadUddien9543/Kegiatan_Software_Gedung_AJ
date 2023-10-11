@@ -2,11 +2,3 @@ int16 L_Front
 int16 R_Front
 int16 L_Back
 int16 R_Back
-#float32 LF_rpm
-#float32 RF_rpm
-#float32 LB_rpm
-#float32 RB_rpm
-#float32 LF_dist
-#float32 RF_dist
-#float32 LB_dist
-#float32 RB_dist

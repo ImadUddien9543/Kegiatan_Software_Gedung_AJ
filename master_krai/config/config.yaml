@@ -1,0 +1,22 @@
+#jarak titik tengah roda ke titik tengah robot
+l_omni: 1
+
+#arah CW roda thd arah hadap robot
+alpha_omni:
+  - 45.0    #rf
+  - 135.0   #lf
+  - -135.0  #lb
+  - -45.0   #rb
+
+vel_coeff:
+  - 1.0
+  - 1.0
+  - 0.75
+
+joy_range:
+  - -1.0
+  - 1.0
+
+omni_range:
+  - -700
+  - 700

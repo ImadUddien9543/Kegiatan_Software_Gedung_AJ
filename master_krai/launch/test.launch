@@ -1,21 +1,19 @@
 <launch>
-  <rosparam command="load" file="$(find master_krai)/config/var_gajah.yaml"/>
+  <!-- TEST CPP NODE  -->
 
-  <arg name="stm" default="/dev/ttyACM0"/>  
+
+  <!-- <arg name="stm" default="/dev/ttyACM0"/>  
   <arg name="stm_id" default="/dev/serial/by-id/usb-STMicroelectronics_STM32_STLink_066EFF495254707867251444-if02"/>  
-  
+   -->
   <include file="$(find joy_2)/launch/ps4joy.launch">
     <arg name="dev" value="/dev/input/js0"/>
-    <arg name = "conf" default="$(find joy_2)/config/ps4joy.yaml"/>
-  </include>  
+    <!-- <arg name = "conf" default="$(find master_krai)/config/jetson_nano.yaml"/> -->
+    <arg name = "conf" default="$(find master_krai)/config/laptop_ps4.yaml"/>
+  </include>
 
-  <node name="Mekanisme_gajah" pkg="master_krai" type="gajah.py" output="screen" respawn="true">
-  </node>
 
-  <node name="Kinematik" pkg="master_krai" type="robot_kinematic.py" output="screen" respawn="true">    
-    <param name="alpha_coeff" type="double" value="0.6"/>
-    <param name="vel_coeff" type="double" value="1"/>
-    <param name="move_slow" type="bool" value="false"/>
+  <node name="kinematik" pkg="master_krai" type="kinematik" output="screen" respawn="true">    
+    <rosparam command="load" file="$(find master_krai)/config/config.yaml"/>    
   </node>
           
 </launch>

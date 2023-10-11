@@ -1,6 +1,6 @@
 uint32 roller_spd_1
 uint32 roller_spd_2
-int16 x_penembak
+float32 x_penembak
 float32 y_penembak
 int16 lift_gripper
 int16 lift_gripper2
