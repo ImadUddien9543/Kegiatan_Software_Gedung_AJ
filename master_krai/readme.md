@@ -139,9 +139,9 @@
  3. menggunakan script `ds4_run.py`, tinggal di un-comment di launch file
 
 
-## Note file variable.yaml
-# idle atau pwm 3000 di list pwm bldc (bldc mati) dihapus aja
-# di program script sudah ada command untuk matikan bldc (tombol PS)
-# jadi tinggal tombol atas bawah  untuk ganti setting pwm(lihat vile var_gajah)
-# klo mau liat kecepatan tinggal un-comment line print di script python
-# tidak perlu buka terminal trus rostopic echo
+# Note file variable.yaml
+- idle atau pwm 3000 di list pwm bldc (bldc mati) dihapus aja
+- di program script sudah ada command untuk matikan bldc (tombol PS)
+- jadi tinggal tombol atas bawah  untuk ganti setting pwm(lihat vile var_gajah)
+- klo mau liat kecepatan tinggal un-comment line print di script python
+- tidak perlu buka terminal trus rostopic echo
