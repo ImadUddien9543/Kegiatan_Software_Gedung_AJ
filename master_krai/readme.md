@@ -128,9 +128,8 @@
  	 elif msg.buttons[1] == False: X off`
 
 
-## note untuk config joy pake ds4drv
-
-# ada beberpa cara koneksi nya:
+# note untuk config joy pake ds4drv
+ ada beberpa cara koneksi nya:
  1. pake command di terminal `ds4drv &` *resiko koneksi ke ps4 stick lain*
 
  2. pake command di terminal `ds4drv --hidraw &` *koneksi ke DEVICE yang SUDAH di trust & pair di bluetoothctl* 
