@@ -1,0 +1,16 @@
+{
+	"bootstrapped": true,
+	"installed_packages":
+	[
+		"C11",
+		"Package Control",
+		"ScopeView",
+	],
+	"in_process_packages":
+	[
+	],
+	"repositories":
+	[
+		"https://raw.githubusercontent.com/STealthy-and-haSTy/SublimePackages/master/unreleased-packages.json"
+	],
+}
