@@ -1,5 +1,5 @@
-#ifndef KINEMATIK__ 
-#define KINEMATIK__
+#ifndef MEKANISME__ 
+#define MEKANISME__
 
 #define _USE_MATH_DEFINES
 #include <ros/ros.h>
@@ -20,7 +20,7 @@ enum class button {
 	OP = 9, //options
 	PS = 10,
 	L1 = 4,
-	R2 = 5,
+	R1 = 5,
 	L = 13, //kiri
 	R = 14, //kanan
 	U = 15, //atas
@@ -37,7 +37,7 @@ public:
 		const std::vector<float> &bldc_range,
 		const std::vector<float> &bldc_offset,
 		const std::vector<float> &boost_bldc_up,
-		const std::vector<float> &boost_bldc_down,
+		const std::vector<float> &boost_bldc_down
 		);
 	~mekanisme(){};
 	void stm_pub();
@@ -46,19 +46,20 @@ private:
 	ros::NodeHandle &nh_;
 	ros::Publisher m_pub;
 	ros::Subscriber joy_sub;
+	ros::Timer timer_pub;
 
-	bool shoot_mode, bulat, silang;
+	bool shoot_mode, bulat, silang, kotak;
 	bool is_initialized;
 	float chain_lift, inc_chain_lift;
 	int shooter_position;
 
-	std::vector<float> &roller_vel_;
-	std::vector<float> &roller_x_;
-	std::vector<float> &roller_y_;
-	std::vector<float> &bldc_range_;
-	std::vector<float> &bldc_offset_;
-	std::vector<float> &boost_bldc_up_;
-	std::vector<float> &boost_bldc_down_;
+	std::vector<float> roller_vel_;
+	std::vector<float> roller_x_;
+	std::vector<float> roller_y_;
+	std::vector<float> bldc_range_;
+	std::vector<float> bldc_offset_;
+	std::vector<float> boost_bldc_up_;
+	std::vector<float> boost_bldc_down_;
 	
 	
 	master_krai::Mechanism m_;
