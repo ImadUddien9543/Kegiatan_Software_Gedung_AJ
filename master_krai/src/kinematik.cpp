@@ -11,7 +11,6 @@ kinematik::kinematik(
 	:nh_(nh), l_(l), alpha_(alpha), vel_coeff_(vel_coeff), joy_range_(joy_range), omni_range_(omni_range)
 {
 	ROS_INFO("Creating kinematik");
-	
 	omni_pwm = nh_.advertise<master_krai::Wheel>("/robot/omni_pwm", 10);
 	joy_sub = nh_.subscribe("/joy", 1, &kinematik::joy_callback, this);
 	timer_pub = nh_.createTimer(ros::Duration(1.0/50.0), std::bind(&kinematik::stm_pub, this));
@@ -53,22 +52,22 @@ int main(int argc, char **argv){
 	std::string node_name = "kinematik";
 	ros::init(argc, argv, node_name);
 
-    ros::NodeHandle nh;
-    ros::NodeHandle arg_n("~");
+	ros::NodeHandle nh;
+	ros::NodeHandle arg_n("~");
 
-    float l;
-    std::vector<float> joy_range;
-    std::vector<float> omni_range;
-    std::vector<float> alpha;
-    std::vector<float> vel_coeff;
+	float l;
+	std::vector<float> joy_range;
+	std::vector<float> omni_range;
+	std::vector<float> alpha;
+	std::vector<float> vel_coeff;
 
-    arg_n.getParam("l_omni", l);
-    arg_n.getParam("alpha_omni", alpha);
-    arg_n.getParam("vel_coeff", vel_coeff);
-    arg_n.getParam("joy_range", joy_range);
-    arg_n.getParam("omni_range", omni_range);    
+	arg_n.getParam("l_omni", l);
+	arg_n.getParam("alpha_omni", alpha);
+	arg_n.getParam("vel_coeff", vel_coeff);
+	arg_n.getParam("joy_range", joy_range);
+	arg_n.getParam("omni_range", omni_range);    
 
-    kinematik robot(nh, l, alpha, vel_coeff, joy_range, omni_range);    
-    ros::spin();
-    return 0;
+	kinematik robot(nh, l, alpha, vel_coeff, joy_range, omni_range);
+	ros::spin();
+	return 0;
 }
