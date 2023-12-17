@@ -50,14 +50,12 @@ private:
 	std::vector<float> alpha_;
 	float rf, rb, lf, lb;
 	std::vector<float> joy_range_;
-    std::vector<float> omni_range_;
-    std::vector<float> vel_coeff_;
+	std::vector<float> omni_range_;
+	std::vector<float> vel_coeff_;
 	master_krai::Wheel rpm;
 	float nos;
 	std::vector<float> nos_in;
 	std::vector<float> nos_out;
-
-
 	void joy_callback(const sensor_msgs::Joy::ConstPtr &joy);
 };
 
