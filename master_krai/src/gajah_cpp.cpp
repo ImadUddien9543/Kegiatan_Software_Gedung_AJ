@@ -10,7 +10,7 @@ mekanisme::mekanisme(
 	const std::vector<float> &bldc_range,
 	const std::vector<float> &bldc_offset,
 	const std::vector<float> &boost_bldc_up,
-	const std::vector<float> &boost_bldc_down,
+	const std::vector<float> &boost_bldc_down
 	):
 	nh_(nh), roller_vel_(roller_vel), roller_x_(roller_x), roller_y_(roller_y),
 	bldc_range_(bldc_range), bldc_offset_(bldc_offset), 
@@ -24,10 +24,11 @@ mekanisme::mekanisme(
 	is_initialized = false;
 
 	m_pub = nh_.advertise<master_krai::Mechanism>("/robot/mekanisme", 10);
-	joy_sub = nh_.subscribe("/joy", 1, &kinematik::joy_callback, this);	
+	joy_sub = nh_.subscribe("/joy", 1, &mekanisme::joy_callback, this);	
+	timer_pub = nh_.createTimer(ros::Duration(1.0/50.0), std::bind(&mekanisme::stm_pub, this));
 }
 
-void kinematik::joy_callback(const sensor_msgs::Joy::ConstPtr &msg){
+void mekanisme::joy_callback(const sensor_msgs::Joy::ConstPtr &msg){
 	if(!is_initialized){
 		prev_joy = *msg;
 		is_initialized = true;
@@ -94,7 +95,7 @@ void kinematik::joy_callback(const sensor_msgs::Joy::ConstPtr &msg){
 	}
 }
 
-void kinematik::stm_pub(){
+void mekanisme::stm_pub(){
 	if(shoot_mode == false){
 		m_.y_penembak = 0;
 		m_.x_penembak = 0;
@@ -109,7 +110,7 @@ void kinematik::stm_pub(){
 	m_.silang = silang;
 	m_.lift_gripper = math::r_to_int(chain_lift);
 	m_.lift_gripper2 = 0;
-	m_pub.publish(rpm);
+	m_pub.publish(m_);
 }
 
 
@@ -117,33 +118,26 @@ int main(int argc, char **argv){
 	std::string node_name = "mekanisme";
 	ros::init(argc, argv, node_name);
 
-    ros::NodeHandle nh;
-    ros::NodeHandle arg_n("~");
+	ros::NodeHandle nh;
+	ros::NodeHandle arg_n("~");
 	
-    std::vector<float> roller_vel;
-	std::vector<float> &roller_x;
-	std::vector<float> &roller_y;
+	std::vector<float> roller_vel;
+	std::vector<float> roller_x;
+	std::vector<float> roller_y;
 	std::vector<float> bldc_range;
 	std::vector<float> bldc_offset;
 	std::vector<float> boost_bldc_up;
 	std::vector<float> boost_bldc_down;
 
-    arg_n.getParam("ring_mri", roller_vel);
-    arg_n.getParam("sudut_x", roller_x);
-    arg_n.getParam("sudut_y", roller_y);
-    arg_n.getParam("bldc_pwm_range", bldc_range);
-    arg_n.getParam("bldc_offset", bldc_offset);
-    arg_n.getParam("boost_bldc_1", boost_bldc_up);
-    arg_n.getParam("boost_bldc_2", boost_bldc_down);
+	arg_n.getParam("ring_mri", roller_vel);
+	arg_n.getParam("sudut_x", roller_x);
+	arg_n.getParam("sudut_y", roller_y);
+	arg_n.getParam("bldc_pwm_range", bldc_range);
+	arg_n.getParam("bldc_offset", bldc_offset);
+	arg_n.getParam("boost_bldc_1", boost_bldc_up);
+	arg_n.getParam("boost_bldc_2", boost_bldc_down);
 
-    kinematik robot(nh, roller_vel, roller_x, roller_y, bldc_range, bldc_offset, boost_bldc_up, boost_bldc_down);
-    ros::Timer timerpublish = nh.createTimer(ros::Duration(1.0/50.0), std::bind(&kinematik::stm_pub, robot));
-    ros::spin();
-    return 0;
+	mekanisme mekanisme_robot(nh, roller_vel, roller_x, roller_y, bldc_range, bldc_offset, boost_bldc_up, boost_bldc_down);
+	ros::spin();
+	return 0;
 }
-//\b[[:alpha:]_][[:alnum:]_]*\b
-
-//'(?:(::)\s*)?{{\b[[:alpha:]_][[:alnum:]_]*\b}}\s*(::)\s*'
-
-//source.c++ meta.function.c++ meta.block.c++ meta.function-call.c++ meta.group.c++ punctuation.section.group.begin.c++
-//"scope": "(keyword.operator.comparison.c | keyword.operator.ternary.c | keyword.operator.assignment.c | keyword.operator.assignment.augmented.c | keyword.operator.arithmetic.c 
