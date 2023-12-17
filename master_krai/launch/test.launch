@@ -1,19 +1,22 @@
 <launch>
-  <!-- TEST CPP NODE  -->
+	<!-- TEST CPP NODE  -->
 
 
-  <!-- <arg name="stm" default="/dev/ttyACM0"/>  
-  <arg name="stm_id" default="/dev/serial/by-id/usb-STMicroelectronics_STM32_STLink_066EFF495254707867251444-if02"/>  
-   -->
-  <include file="$(find joy_2)/launch/ps4joy.launch">
-    <arg name="dev" value="/dev/input/js0"/>
-    <!-- <arg name = "conf" default="$(find master_krai)/config/jetson_nano.yaml"/> -->
-    <arg name = "conf" default="$(find master_krai)/config/laptop_ps4.yaml"/>
-  </include>
+	<!-- <arg name="stm" default="/dev/ttyACM0"/>  
+	<arg name="stm_id" default="/dev/serial/by-id/usb-STMicroelectronics_STM32_STLink_066EFF495254707867251444-if02"/>  
+	 -->
+	<!-- <include file="$(find joy_2)/launch/ps4joy.launch"> -->
+		<!-- <arg name="dev" value="/dev/input/js0"/> -->
+		<!-- <arg name = "conf" default="$(find master_krai)/config/jetson_nano.yaml"/> -->
+		<!-- <arg name = "conf" default="$(find master_krai)/config/laptop_ps4.yaml"/> -->
+	<!-- </include> -->
 
 
-  <node name="kinematik" pkg="master_krai" type="kinematik" output="screen" respawn="true">    
-    <rosparam command="load" file="$(find master_krai)/config/config.yaml"/>    
-  </node>
-          
+	<node name="kinematik" pkg="master_krai" type="kinematik" output="screen" respawn="true">    
+		<rosparam command="load" file="$(find master_krai)/config/config.yaml"/>    
+	</node>
+				 
+	<node name="mekanisme" pkg="master_krai" type="mekanisme" output="screen" respawn="true">    
+		<rosparam command="load" file="$(find master_krai)/config/config.yaml"/>    
+	</node> 
 </launch>
