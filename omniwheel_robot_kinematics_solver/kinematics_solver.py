@@ -22,6 +22,7 @@ init_printing()
 var('q1 q2 q3')
 var('Xg, Yg, Zg')
 var('w1 w2 w3 w4')
+
 cs = Symbol("cos(th)")
 sn = Symbol("sin(th)")
 
