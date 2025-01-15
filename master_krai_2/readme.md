@@ -1,7 +1,7 @@
-### Master KRAI package
+# Master KRAI package
 
 
-## Pre-requisites:
+### Pre-requisites:
 
  **install:**	
  sudo apt-get install python-is-python3
@@ -18,10 +18,10 @@
  ganti tulisan python ke python3
 
 
-## scripts:
+### scripts:
   - kelinci.py
   - gajah.py 	
-## launch:
+### launch:
   - kelinci.launch
   - gajah.launch
 
@@ -74,7 +74,7 @@
 
 
 
-# note
+## note
  	di semua launch ada config untuk mengubah setting input joystick:
  	di package joy_2 buat file config baru di:
  	`~/ros_ws/src/joy_2/config`
@@ -130,7 +130,7 @@
 
 ## note untuk config joy pake ds4drv
 
-# ada beberpa cara koneksi nya:
+### ada beberpa cara koneksi nya:
  1. pake command di terminal `ds4drv &` *resiko koneksi ke ps4 stick lain*
 
  2. pake command di terminal `ds4drv --hidraw &` *koneksi ke DEVICE yang SUDAH di trust & pair di bluetoothctl* 
@@ -140,8 +140,8 @@
 
 
 ## Note file variable.yaml
-# idle atau pwm 3000 di list pwm bldc (bldc mati) dihapus aja
-# di program script sudah ada command untuk matikan bldc (tombol PS)
-# jadi tinggal tombol atas bawah  untuk ganti setting pwm(lihat vile var_gajah)
-# klo mau liat kecepatan tinggal un-comment line print di script python
-# tidak perlu buka terminal trus rostopic echo
+### idle atau pwm 3000 di list pwm bldc (bldc mati) dihapus aja
+### di program script sudah ada command untuk matikan bldc (tombol PS)
+### jadi tinggal tombol atas bawah  untuk ganti setting pwm(lihat file var_gajah)
+### klo mau liat kecepatan tinggal un-comment line print di script python
+### tidak perlu buka terminal trus rostopic echo
